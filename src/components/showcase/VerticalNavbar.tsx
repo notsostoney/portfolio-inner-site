@@ -45,6 +45,22 @@ const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
                 <h1 style={styles.headerText}>Antoine</h1>
                 <h1 style={styles.headerText}>Pornin</h1>
                 <h3 style={styles.headerShowcase}>Showcase '26</h3>
+                <div style={styles.langSwitcher}>
+                    {LANGS.map((l) => (
+                        <button
+                            key={l.code}
+                            className="site-button"
+                            style={Object.assign(
+                                {},
+                                styles.langBtn,
+                                lang === l.code && styles.langBtnActive
+                            )}
+                            onMouseDown={() => setLang(l.code)}
+                        >
+                            {l.label}
+                        </button>
+                    ))}
+                </div>
             </div>
             <div style={styles.links}>
                 <Link containerStyle={styles.link} to="" text="HOME" />
@@ -88,22 +104,6 @@ const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
                     text={t(tr['nav.contact'])}
                 />
             </div>
-            <div style={styles.langSwitcher}>
-                {LANGS.map((l) => (
-                    <button
-                        key={l.code}
-                        className="site-button"
-                        style={Object.assign(
-                            {},
-                            styles.langBtn,
-                            lang === l.code && styles.langBtnActive
-                        )}
-                        onMouseDown={() => setLang(l.code)}
-                    >
-                        {l.label}
-                    </button>
-                ))}
-            </div>
         </div>
     ) : (
         <></>
@@ -122,7 +122,7 @@ const styles: StyleSheetCSS = {
     },
     header: {
         flexDirection: 'column',
-        marginBottom: 64,
+        marginBottom: 32,
     },
     headerText: {
         fontSize: 38,

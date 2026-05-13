@@ -17,10 +17,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                 <div style={styles.header}>
                     <div style={styles.headerRow}>
                         <h1>Golden Sun</h1>
-                        <a rel="noreferrer" target="_blank"
-                            href="https://www.linkedin.com/company/golden-sun-health-technology-group/">
-                            <h4>Golden Sun Health Technology Group</h4>
-                        </a>
+                        <h4>Golden Sun Health Technology Group</h4>
                     </div>
                     <div style={styles.headerRow}>
                         <h3>{t(tr['exp.gs.role'])}</h3>

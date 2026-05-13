@@ -449,6 +449,8 @@ const styles: StyleSheetCSS = {
         flexShrink: 1,
         width: '100%',
         height: 20,
+        position: 'relative',
+        zIndex: 10,
     },
     bottomSpacer: {
         width: 16,

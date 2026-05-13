@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from '../general';
-import forHire from '../../assets/pictures/forHireGif.gif';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useT } from '../../context/LanguageContext';
+import { tr } from '../../constants/translations';
 
 export interface VerticalNavbarProps {}
 
 const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
     const location = useLocation();
+    const t = useT();
     const [projectsExpanded, setProjectsExpanded] = useState(false);
     const [isHome, setIsHome] = useState(false);
 
@@ -38,11 +40,11 @@ const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
             </div>
             <div style={styles.links}>
                 <Link containerStyle={styles.link} to="" text="HOME" />
-                <Link containerStyle={styles.link} to="about" text="ABOUT" />
+                <Link containerStyle={styles.link} to="about" text={t(tr['nav.about'])} />
                 <Link
                     containerStyle={styles.link}
                     to="experience"
-                    text="EXPERIENCE"
+                    text={t(tr['nav.experience'])}
                 />
                 <Link
                     containerStyle={Object.assign(
@@ -51,40 +53,35 @@ const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
                         projectsExpanded && styles.expandedLink
                     )}
                     to="projects"
-                    text="PROJECTS"
+                    text={t(tr['nav.projects'])}
                 />
-                {
-                    // if current path contains projects
-                    projectsExpanded && (
-                        <div style={styles.insetLinks}>
-                            <Link
-                                containerStyle={styles.insetLink}
-                                to="projects/software"
-                                text="SOFTWARE"
-                            />
-                            <Link
-                                containerStyle={styles.insetLink}
-                                to="projects/music"
-                                text="MUSIC"
-                            />
-                            <Link
-                                containerStyle={styles.insetLink}
-                                to="projects/art"
-                                text="ART"
-                            />
-                        </div>
-                    )
-                }
+                {projectsExpanded && (
+                    <div style={styles.insetLinks}>
+                        <Link
+                            containerStyle={styles.insetLink}
+                            to="projects/software"
+                            text="SOFTWARE"
+                        />
+                        <Link
+                            containerStyle={styles.insetLink}
+                            to="projects/music"
+                            text="MUSIC"
+                        />
+                        <Link
+                            containerStyle={styles.insetLink}
+                            to="projects/art"
+                            text="ART"
+                        />
+                    </div>
+                )}
                 <Link
                     containerStyle={styles.link}
                     to="contact"
-                    text="CONTACT"
+                    text={t(tr['nav.contact'])}
                 />
             </div>
             <div style={styles.spacer} />
-            <div style={styles.forHireContainer} onMouseDown={goToContact}>
-                {/* <img src={forHire} style={styles.image} alt="" /> */}
-            </div>
+            <div style={styles.forHireContainer} onMouseDown={goToContact} />
         </div>
     ) : (
         <></>
@@ -135,15 +132,11 @@ const styles: StyleSheetCSS = {
         flex: 1,
         justifyContent: 'center',
     },
-    image: {
-        width: '80%',
-    },
     spacer: {
         flex: 1,
     },
     forHireContainer: {
         cursor: 'pointer',
-
         width: '100%',
     },
 };

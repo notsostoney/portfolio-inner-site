@@ -1,107 +1,63 @@
 import React from 'react';
 import ResumeDownload from './ResumeDownload';
+import { useT } from '../../context/LanguageContext';
+import { tr } from '../../constants/translations';
 
 export interface ExperienceProps {}
 
 const Experience: React.FC<ExperienceProps> = (props) => {
+    const t = useT();
+
     return (
         <div className="site-page-content">
             <ResumeDownload />
+
             {/* ── Golden Sun ── */}
             <div style={styles.headerContainer}>
                 <div style={styles.header}>
                     <div style={styles.headerRow}>
                         <h1>Golden Sun</h1>
-                        <a
-                            rel="noreferrer"
-                            target="_blank"
-                            href="https://www.linkedin.com/company/golden-sun-health-technology-group/"
-                        >
+                        <a rel="noreferrer" target="_blank"
+                            href="https://www.linkedin.com/company/golden-sun-health-technology-group/">
                             <h4>Golden Sun Health Technology Group</h4>
                         </a>
                     </div>
                     <div style={styles.headerRow}>
-                        <h3>Stagiaire Commercial International</h3>
-                        <b>
-                            <p>Fév – Juil 2026 · 4 mois · Jinhua, Chine</p>
-                        </b>
+                        <h3>{t(tr['exp.gs.role'])}</h3>
+                        <b><p>{t(tr['exp.gs.date'])}</p></b>
                     </div>
                 </div>
             </div>
             <div className="text-block">
-                <p>
-                    Développement des ventes à l'international d'une entreprise
-                    dont l'activité est jusqu'ici essentiellement locale.
-                </p>
+                <p>{t(tr['exp.gs.intro'])}</p>
                 <br />
                 <ul>
-                    <li>
-                        <p>
-                            Développement des ventes à l'international — analyse
-                            de marchés étrangers et identification d'opportunités
-                            export.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            Adaptation interculturelle des argumentaires
-                            commerciaux selon les marchés cibles.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            Création de contenus commerciaux en anglais pour les
-                            marchés étrangers.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            Échanges directs avec des prospects et partenaires
-                            internationaux.
-                        </p>
-                    </li>
+                    <li><p>{t(tr['exp.gs.li1'])}</p></li>
+                    <li><p>{t(tr['exp.gs.li2'])}</p></li>
+                    <li><p>{t(tr['exp.gs.li3'])}</p></li>
+                    <li><p>{t(tr['exp.gs.li4'])}</p></li>
                 </ul>
             </div>
 
-            {/* ── Intermédiation Yiwu ── */}
+            {/* ── Yiwu ── */}
             <div style={styles.headerContainer}>
                 <div style={styles.header}>
                     <div style={styles.headerRow}>
                         <h1>Yiwu Sourcing</h1>
                     </div>
                     <div style={styles.headerRow}>
-                        <h3>Intermédiaire Commercial France–Chine</h3>
-                        <b>
-                            <p>2024 – présent · Yiwu, Chine</p>
-                        </b>
+                        <h3>{t(tr['exp.yiwu.role'])}</h3>
+                        <b><p>{t(tr['exp.yiwu.date'])}</p></b>
                     </div>
                 </div>
             </div>
             <div className="text-block">
-                <p>
-                    Activité indépendante : pont entre la France et Yiwu, la
-                    capitale mondiale du sourcing.
-                </p>
+                <p>{t(tr['exp.yiwu.intro'])}</p>
                 <br />
                 <ul>
-                    <li>
-                        <p>
-                            Identification et qualification de fournisseurs pour
-                            des entreprises françaises.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            Présélection, comparaison d'offres, réduction de
-                            l'incertitude avant tout partenariat.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            Négociation et suivi des relations commerciales
-                            France–Chine.
-                        </p>
-                    </li>
+                    <li><p>{t(tr['exp.yiwu.li1'])}</p></li>
+                    <li><p>{t(tr['exp.yiwu.li2'])}</p></li>
+                    <li><p>{t(tr['exp.yiwu.li3'])}</p></li>
                 </ul>
             </div>
 
@@ -112,34 +68,18 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                         <h1>IUT de l'Indre</h1>
                     </div>
                     <div style={styles.headerRow}>
-                        <h3>BUT TC – Commerce International</h3>
-                        <b>
-                            <p>2023 – 2026 · Issoudun, France</p>
-                        </b>
+                        <h3>{t(tr['exp.iut.role'])}</h3>
+                        <b><p>{t(tr['exp.iut.date'])}</p></b>
                     </div>
                 </div>
             </div>
             <div className="text-block">
-                <p>
-                    Formation alliant théorie et pratique puisqu'à la fin de chaque années un stage est nécessaire pour valider le diplôme. 
-                </p>
+                <p>{t(tr['exp.iut.intro'])}</p>
                 <br />
                 <ul>
-                    <li>
-                        <p>Marketing, vente, négociation, analyse commerciale.</p>
-                    </li>
-                    <li>
-                        <p>
-                            Gestion de projet, communication digitale,
-                            e-commerce international.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            Anglais professionnel (TOEIC 885), initiation au
-                            mandarin.
-                        </p>
-                    </li>
+                    <li><p>{t(tr['exp.iut.li1'])}</p></li>
+                    <li><p>{t(tr['exp.iut.li2'])}</p></li>
+                    <li><p>{t(tr['exp.iut.li3'])}</p></li>
                 </ul>
             </div>
 
@@ -150,37 +90,18 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                         <h1>Sankt Georgen</h1>
                     </div>
                     <div style={styles.headerRow}>
-                        <h3>Expérience Internationale – Football</h3>
-                        <b>
-                            <p>Sankt Georgen · Allemagne</p>
-                        </b>
+                        <h3>{t(tr['exp.sg.role'])}</h3>
+                        <b><p>{t(tr['exp.sg.date'])}</p></b>
                     </div>
                 </div>
             </div>
             <div className="text-block">
-                <p>
-                    Opportunité footballistique : changer de pays pour grandir.
-                </p>
+                <p>{t(tr['exp.sg.intro'])}</p>
                 <br />
                 <ul>
-                    <li>
-                        <p>
-                            Immersion totale dans un environnement germanophone —
-                            allemand B1/B2.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            Adaptation rapide, autonomie et intégration dans une
-                            culture différente.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            Discipline sportive et développement du sens du
-                            collectif.
-                        </p>
-                    </li>
+                    <li><p>{t(tr['exp.sg.li1'])}</p></li>
+                    <li><p>{t(tr['exp.sg.li2'])}</p></li>
+                    <li><p>{t(tr['exp.sg.li3'])}</p></li>
                 </ul>
             </div>
         </div>
@@ -201,10 +122,6 @@ const styles: StyleSheetCSS = {
     headerRow: {
         justifyContent: 'space-between',
         alignItems: 'flex-end',
-    },
-    row: {
-        display: 'flex',
-        justifyContent: 'space-between',
     },
 };
 

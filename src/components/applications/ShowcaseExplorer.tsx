@@ -11,6 +11,8 @@ import MusicProjects from '../showcase/projects/Music';
 import ArtProjects from '../showcase/projects/Art';
 import VerticalNavbar from '../showcase/VerticalNavbar';
 import useInitialWindowSize from '../../hooks/useInitialWindowSize';
+import { LanguageProvider } from '../../context/LanguageContext';
+import LanguageSwitcher from '../general/LanguageSwitcher';
 
 export interface ShowcaseExplorerProps extends WindowAppProps {}
 
@@ -18,40 +20,46 @@ const ShowcaseExplorer: React.FC<ShowcaseExplorerProps> = (props) => {
     const { initWidth, initHeight } = useInitialWindowSize({ margin: 100 });
 
     return (
-        <Window
-            top={24}
-            left={56}
-            width={initWidth}
-            height={initHeight}
-            windowTitle="Antoine Pornin - Portfolio"
-            windowBarIcon="windowExplorerIcon"
-            closeWindow={props.onClose}
-            onInteract={props.onInteract}
-            minimizeWindow={props.onMinimize}
-            bottomLeftText={'© 2026 Antoine Pornin'}
-        >
-            <Router>
-                <div className="site-page">
-                    <VerticalNavbar />
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/about" element={<About />} />
-                        <Route path="/experience" element={<Experience />} />
-                        <Route path="/projects" element={<Projects />} />
-                        <Route path="/contact" element={<Contact />} />
-                        <Route
-                            path="/projects/software"
-                            element={<SoftwareProjects />}
-                        />
-                        <Route
-                            path="/projects/music"
-                            element={<MusicProjects />}
-                        />
-                        <Route path="/projects/art" element={<ArtProjects />} />
-                    </Routes>
-                </div>
-            </Router>
-        </Window>
+        <LanguageProvider>
+            <Window
+                top={24}
+                left={56}
+                width={initWidth}
+                height={initHeight}
+                windowTitle="Antoine Pornin - Portfolio"
+                windowBarIcon="windowExplorerIcon"
+                closeWindow={props.onClose}
+                onInteract={props.onInteract}
+                minimizeWindow={props.onMinimize}
+                bottomLeftText={'© 2026 Antoine Pornin'}
+                bottomRightContent={<LanguageSwitcher />}
+            >
+                <Router>
+                    <div className="site-page">
+                        <VerticalNavbar />
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/about" element={<About />} />
+                            <Route path="/experience" element={<Experience />} />
+                            <Route path="/projects" element={<Projects />} />
+                            <Route path="/contact" element={<Contact />} />
+                            <Route
+                                path="/projects/software"
+                                element={<SoftwareProjects />}
+                            />
+                            <Route
+                                path="/projects/music"
+                                element={<MusicProjects />}
+                            />
+                            <Route
+                                path="/projects/art"
+                                element={<ArtProjects />}
+                            />
+                        </Routes>
+                    </div>
+                </Router>
+            </Window>
+        </LanguageProvider>
     );
 };
 

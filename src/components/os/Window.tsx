@@ -17,6 +17,7 @@ export interface WindowProps {
     left: number;
     windowTitle?: string;
     bottomLeftText?: string;
+    bottomRightContent?: React.ReactNode;
     rainbow?: boolean;
     windowBarColor?: string;
     windowBarIcon?: IconName;
@@ -294,9 +295,12 @@ const Window: React.FC<WindowProps> = (props) => {
                                 style={Object.assign(
                                     {},
                                     styles.insetBorder,
-                                    styles.bottomSpacer
+                                    styles.bottomSpacer,
+                                    { alignItems: 'center', paddingRight: 4 }
                                 )}
-                            />
+                            >
+                                {props.bottomRightContent}
+                            </div>
                             <div
                                 style={Object.assign(
                                     {},

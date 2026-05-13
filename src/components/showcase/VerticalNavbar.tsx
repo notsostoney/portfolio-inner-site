@@ -88,7 +88,6 @@ const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
                     text={t(tr['nav.contact'])}
                 />
             </div>
-            <div style={styles.spacer} />
             <div style={styles.langSwitcher}>
                 {LANGS.map((l) => (
                     <button
@@ -152,8 +151,8 @@ const styles: StyleSheetCSS = {
     },
     links: {
         flexDirection: 'column',
-        flex: 1,
         justifyContent: 'center',
+        marginBottom: 24,
     },
     spacer: {
         flex: 1,

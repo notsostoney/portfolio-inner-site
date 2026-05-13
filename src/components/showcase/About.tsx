@@ -34,7 +34,7 @@ const About: React.FC<AboutProps> = (props) => {
                 <br />
                 <p>
                     Né le 9 avril 2005 à Issoudun, j'ai grandi avec une forte
-                    curiosité pour l'international. Dès le lycée, une
+                    curiosité pour l'international. Dès la fin du collège, une
                     opportunité footballistique m'a amené en Allemagne, au
                     Gymnasium de Sankt Georgen, où j'ai vécu une première
                     expérience d'adaptation à l'étranger : nouvelle langue,

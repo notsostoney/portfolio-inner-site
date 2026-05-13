@@ -121,8 +121,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
             </div>
             <div className="text-block">
                 <p>
-                    Formation en alternance théorie / pratique dans un
-                    environnement économique fort (Safran, Louis Vuitton).
+                    Formation alliant théorie et pratique puisqu'à la fin de chaque années un stage est nécessaire pour valider le diplôme. 
                 </p>
                 <br />
                 <ul>
@@ -153,7 +152,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                     <div style={styles.headerRow}>
                         <h3>Expérience Internationale – Football</h3>
                         <b>
-                            <p>Gymnasium de Sankt Georgen · Allemagne</p>
+                            <p>Sankt Georgen · Allemagne</p>
                         </b>
                     </div>
                 </div>

@@ -26,6 +26,25 @@
     -->
   <title>Antoine Pornin - OS</title>
   <script>
+    // GitHub Pages SPA: restore path from 404 redirect
+    (function() {
+      var redirect = sessionStorage.redirect;
+      delete sessionStorage.redirect;
+      if (redirect && redirect !== location.href) {
+        history.replaceState(null, null, redirect);
+      }
+      var search = window.location.search;
+      if (search) {
+        var p = new URLSearchParams(search);
+        var path = p.get('p');
+        if (path) {
+          var newPath = '/' + path.replace(/~and~/g, '&');
+          history.replaceState(null, null, newPath + (p.get('q') ? '?' + p.get('q').replace(/~and~/g, '&') : '') + window.location.hash);
+        }
+      }
+    })();
+  </script>
+  <script>
     window.onload = () => {
       addEventListener('mousemove', (event) => {
         window.parent.postMessage({ clientX: event.clientX, clientY: event.clientY, type: 'mousemove' }, '*');

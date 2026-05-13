@@ -1,14 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from '../general';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useT } from '../../context/LanguageContext';
+import { useT, useLang, Lang } from '../../context/LanguageContext';
 import { tr } from '../../constants/translations';
+
+const LANGS: { code: Lang; label: string }[] = [
+    { code: 'fr', label: 'FR' },
+    { code: 'en', label: 'EN' },
+    { code: 'de', label: 'DE' },
+    { code: 'zh', label: '中' },
+];
 
 export interface VerticalNavbarProps {}
 
 const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
     const location = useLocation();
     const t = useT();
+    const { lang, setLang } = useLang();
     const [projectsExpanded, setProjectsExpanded] = useState(false);
     const [isHome, setIsHome] = useState(false);
 
@@ -81,7 +89,22 @@ const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
                 />
             </div>
             <div style={styles.spacer} />
-            <div style={styles.forHireContainer} onMouseDown={goToContact} />
+            <div style={styles.langSwitcher}>
+                {LANGS.map((l) => (
+                    <button
+                        key={l.code}
+                        className="site-button"
+                        style={Object.assign(
+                            {},
+                            styles.langBtn,
+                            lang === l.code && styles.langBtnActive
+                        )}
+                        onMouseDown={() => setLang(l.code)}
+                    >
+                        {l.label}
+                    </button>
+                ))}
+            </div>
         </div>
     ) : (
         <></>
@@ -135,9 +158,23 @@ const styles: StyleSheetCSS = {
     spacer: {
         flex: 1,
     },
-    forHireContainer: {
-        cursor: 'pointer',
-        width: '100%',
+    langSwitcher: {
+        display: 'flex',
+        flexDirection: 'row',
+        gap: 4,
+        marginTop: 16,
+        marginBottom: 8,
+    },
+    langBtn: {
+        flex: 1,
+        padding: '4px 0',
+        fontSize: 13,
+        fontFamily: 'MSSerif',
+        textAlign: 'center',
+    },
+    langBtnActive: {
+        background: '#0000aa',
+        color: 'white',
     },
 };
 

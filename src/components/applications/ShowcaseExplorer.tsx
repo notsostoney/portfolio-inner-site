@@ -12,7 +12,6 @@ import ArtProjects from '../showcase/projects/Art';
 import VerticalNavbar from '../showcase/VerticalNavbar';
 import useInitialWindowSize from '../../hooks/useInitialWindowSize';
 import { LanguageProvider } from '../../context/LanguageContext';
-import LanguageSwitcher from '../general/LanguageSwitcher';
 
 export interface ShowcaseExplorerProps extends WindowAppProps {}
 
@@ -32,7 +31,6 @@ const ShowcaseExplorer: React.FC<ShowcaseExplorerProps> = (props) => {
                 onInteract={props.onInteract}
                 minimizeWindow={props.onMinimize}
                 bottomLeftText={'© 2026 Antoine Pornin'}
-                bottomRightContent={<LanguageSwitcher />}
             >
                 <Router>
                     <div className="site-page">

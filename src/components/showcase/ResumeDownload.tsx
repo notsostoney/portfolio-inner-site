@@ -8,10 +8,10 @@ export interface ResumeDownloadProps {
 }
 
 const CV_FILES: { lang: Lang; flag: string; nameKey: string; file: string }[] = [
-    { lang: 'fr', flag: '🇫🇷', nameKey: 'resume.fr', file: 'cv/Antoine_Pornin_CV_FR.pdf' },
-    { lang: 'en', flag: '🇬🇧', nameKey: 'resume.en', file: 'cv/Antoine_Pornin_CV_EN.pdf' },
-    { lang: 'de', flag: '🇩🇪', nameKey: 'resume.de', file: 'cv/Antoine_Pornin_CV_DE.pdf' },
-    { lang: 'zh', flag: '🇨🇳', nameKey: 'resume.zh', file: 'cv/Antoine_Pornin_CV_ZH.pdf' },
+    { lang: 'fr', flag: '🇫🇷', nameKey: 'resume.fr', file: '/cv/Antoine_Pornin_CV_FR.pdf' },
+    { lang: 'en', flag: '🇬🇧', nameKey: 'resume.en', file: '/cv/Antoine_Pornin_CV_EN.pdf' },
+    { lang: 'de', flag: '🇩🇪', nameKey: 'resume.de', file: '/cv/Antoine_Pornin_CV_DE.pdf' },
+    { lang: 'zh', flag: '🇨🇳', nameKey: 'resume.zh', file: '/cv/Antoine_Pornin_CV_ZH.pdf' },
 ];
 
 const ResumeDownload: React.FC<ResumeDownloadProps> = ({ altText }) => {
@@ -28,7 +28,7 @@ const ResumeDownload: React.FC<ResumeDownloadProps> = ({ altText }) => {
                             key={cv.lang}
                             rel="noreferrer"
                             target="_blank"
-                            href={cv.file}
+                            href={`${process.env.PUBLIC_URL}${cv.file}`}
                             style={styles.link}
                         >
                             <button className="site-button" style={styles.btn}>

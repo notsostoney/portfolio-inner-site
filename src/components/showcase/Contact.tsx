@@ -67,7 +67,7 @@ const Contact: React.FC<ContactProps> = (props) => {
                     />
                     <SocialBox
                         icon={inIcon}
-                        link={'https://www.linkedin.com/in/antoine-pornin/'}
+                        link={'https://www.linkedin.com/in/antoine-pornin-565725307/'}
                     />
                 </div>
             </div>
